@@ -1,51 +1,35 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+#laravel 学习
+    想少踩坑，所以购买了Summer大神组织编写的[《Laravel 入门教程》](https://fsdhub.com/books/laravel-essential-training-5.1 "《Laravel 入门教程》")。还是很推荐的，这个教程很适合迅速练习
+    之前没接触过laravel,所以就直接学了最新的 laravel5.4
+## 前期准备
+    1. 编辑器使用
+        以前都使用phpstorm，现在也赶下潮流，使用一下有广大github用户支撑的Atom,相信会很好的。
+        插件准备： simplified-chinese-menu、tree-view-git-branch package、atom-bootstrap3、autoprefixer、highlight-selected、linter-php、atom-autocomplete-php、php-cs-fixer、laravel、language-blade
+## laravel 5.4 学习使用细节
+    1. 像thinkphp的block标签，实现父子模板的套用
+            block:
+                `
+                   <!DOCTYPE html>
+                   <html>
+                     <head>
+                       <title>@yield('title', 'Sample App') - Laravel 入门教程</title>
+                     </head>
+                     <body>
+                       @yield('content')
+                     </body>
+                   </html>
+                `
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
-
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+            include:
+                `
+                   @extends('layouts.default')
+                   @section('title', '帮助')
+                   @section('content')
+                     <h1>帮助页</h1>
+                   @stop
+                `
+    2. 之前版本推荐使用gulp,5.4不推荐了。
+            yarn install -> npm install 会安装package.json下的安装包。
+            gulp -> npm run dev 可以使用 Laravel Mix 来将 SASS 文件编译为纯 CSS。此命令处理 webpack.mix.js 文件中的指令。通常情况下，编译好的 CSS 代码会被放置在 public/css
+            gulp watch -> npm run watch 会在你的终端里持续运行，监控资源文件是否有发生改变。这时候一旦资源文件发生变化，webpack 会自动重新编译
+            npm run watch-poll 改变了你的文件的时候而 Webpack 并没有同步更新，使用这个命令
