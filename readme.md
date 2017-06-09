@@ -38,7 +38,10 @@
             gulp watch -> npm run watch 会在你的终端里持续运行，监控资源文件是否有发生改变。这时候一旦资源文件发生变化，webpack 会自动重新编译
             npm run watch-poll 改变了你的文件的时候而 Webpack 并没有同步更新，使用这个命令
     ### 3. route
-            eg : Route::get('signup', 'UsersController@create')->name('signup');  name方法，可以给路由定义一个别名，给代码里用
+            eg1 : Route::get('signup', 'UsersController@create')->name('signup');  name方法，可以给路由定义一个别名，给代码里用
+            eg2 : $user = User::findOrFail($id);
+                你可能会感到疑惑的一点是，这里为什么会使用 id，而不是 user_id？这是因为在使用 resource 生成的用户资源路由中，show 方法相对应的路由为：
+                Route::get('/users/{id}', 'UsersController@show')->name('users.show');
     ### 4. models
             php artisan make:model Models/Article -m  创建了 app/Models/Article 和 migration
 
