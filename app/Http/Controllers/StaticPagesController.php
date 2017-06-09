@@ -21,6 +21,6 @@ class StaticPagesController extends Controller
 
     public function about()
     {
-        return 'about';
+        return view('static_pages.about');
     }
 }
