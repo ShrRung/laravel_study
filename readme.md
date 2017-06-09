@@ -37,8 +37,10 @@
             gulp -> npm run dev 可以使用 Laravel Mix 来将 SASS 文件编译为纯 CSS。此命令处理 webpack.mix.js 文件中的指令。通常情况下，编译好的 CSS 代码会被放置在 public/css
             gulp watch -> npm run watch 会在你的终端里持续运行，监控资源文件是否有发生改变。这时候一旦资源文件发生变化，webpack 会自动重新编译
             npm run watch-poll 改变了你的文件的时候而 Webpack 并没有同步更新，使用这个命令
-        3. route
+    ### 3. route
             eg : Route::get('signup', 'UsersController@create')->name('signup');  name方法，可以给路由定义一个别名，给代码里用
+    ### 4. models
+            php artisan make:model Models/Article -m  创建了 app/Models/Article 和 migration
 
 
 
