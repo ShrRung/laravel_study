@@ -44,6 +44,7 @@
                 Route::get('/users/{id}', 'UsersController@show')->name('users.show');
     ### 4. models
             php artisan make:model Models/Article -m  创建了 app/Models/Article 和 migration
-
+    ### 5. 方法介绍
+            redirect()->intended(default route)  可以跳转到之前页面，当之前页面地址为空时，跳到默认地址
 
 
