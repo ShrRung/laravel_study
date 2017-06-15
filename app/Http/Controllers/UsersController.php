@@ -36,6 +36,9 @@ class UsersController extends Controller
     public function show($ANY)
     {
         $user = User::findOrFail($ANY);
+        $statuses = $user->statuses()
+            ->orderBy('created_at', 'desc')
+            ->paginate(30);
         return view('users.show', compact('user'));
     }
 
